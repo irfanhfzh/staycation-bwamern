@@ -3,13 +3,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
-
-
 export default function Button(props) {
     const className = [props.className]
     if(props.isPrimary) className.push("btn-primary")
-    if(props.isSmall) className.push("btn-lg")
-    if(props.isLarge) className.push("btn-sm")
+    if(props.isSmall) className.push("btn-sm")
+    if(props.isLarge) className.push("btn-lg")
     if(props.isBlock) className.push("btn-block")
     if(props.hasShadow) className.push("btn-shadow")
 
@@ -34,7 +32,7 @@ export default function Button(props) {
         );
     }
 
-    if(props.type === Link) {
+    if(props.type === "link") {
         if(props.isExternal) {
             return(
                <a href={props.href} className={className.join(" ")} style={props.style} target={props.target === "_blank" ? "_blank":undefined} rel={props.target === "_blank" ? "noopener noreferrer":undefined}>{props.children}</a>
